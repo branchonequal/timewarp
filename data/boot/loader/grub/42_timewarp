@@ -1,0 +1,6 @@
+#!/bin/sh
+cat <<EOF
+if [ -f \$prefix/grub-timewarp.cfg ]; then
+  source \$prefix/grub-timewarp.cfg;
+fi
+EOF

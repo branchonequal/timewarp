@@ -1,0 +1,27 @@
+[Unit]
+Description=Time Warp
+
+[Service]
+Type=dbus
+BusName=com.branchonequal.TimeWarp
+ExecStart=/usr/bin/timewarpd
+PrivateNetwork=true
+RestrictNamespaces=true
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+RestrictRealtime=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+ProtectHostname=true
+RestrictAddressFamilies=AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

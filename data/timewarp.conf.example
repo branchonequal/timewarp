@@ -1,0 +1,40 @@
+{
+  "boot": {
+    "entry": {
+      "title": "Arch Linux ({linux.version},{snapshot.date},{snapshot.type},{snapshot.description})",
+      "version": "{linux.version}",
+      "machine_id": "{machine_id}",
+      "options": [
+        {
+          "rd.luks.name": "{root_partition.uuid}=cryptlvm",
+          "root": "/dev/vg0/root",
+          "rootflags": "subvol=/.bootenv/{snapshot.number}"
+        },
+        "rw"
+      ],
+      "architecture": "{architecture}",
+      "linux": "/{machine_id}/{linux.version}-{architecture}/vmlinuz-linux",
+      "initrd": [
+        "/intel-ucode.img",
+        "/{machine_id}/{linux.version}-{architecture}/initramfs-linux.img"
+      ]
+    },
+    "loader": "systemdboot",
+    "mount_point": "/boot"
+  },
+  "bootenv": "/.bootenv",
+  "machine_id": "/etc/machine-id",
+  "package": {
+    "database": "alpm",
+    "important": [
+      "linux"
+    ],
+    "linux": "linux"
+  },
+  "snapper": {
+    "cleanup_algorithm": "number",
+    "description": "timewarp",
+    "name": "root"
+  },
+  "snapshots": "/.snapshots"
+}

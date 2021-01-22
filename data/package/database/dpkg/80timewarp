@@ -1,0 +1,6 @@
+DPkg::Pre-Invoke {
+    "if [ -x /usr/bin/timewarp ]; then /usr/bin/timewarp create -t pre || true; fi";
+};
+DPkg::Post-Invoke {
+    "if [ -x /usr/bin/timewarp ]; then /usr/bin/timewarp create -t post || true; fi";
+};

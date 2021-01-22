@@ -1,0 +1,11 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = *
+
+[Action]
+Description = Creating post-transaction snapshot...
+When = PostTransaction
+Exec = /bin/sh -c "timewarp create -t post"

@@ -1,0 +1,13 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = *
+
+[Action]
+Description = Creating pre-transaction snapshot...
+When = PreTransaction
+Exec = /bin/sh -c "timewarp create -t pre"
+NeedsTargets
+AbortOnFail
